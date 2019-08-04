@@ -87,17 +87,17 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\SUB\PRO\Java\mvc\web\WEB-INF" />
+      <recent name="D:\SUB\PRO\Java\mvc\web\WEB-INF\static" />
+      <recent name="D:\SUB\PRO\Java\mvc\lib" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\SUB\PRO\Java\mvc\web" />
       <recent name="D:\SUB\PRO\Java\mvc\web\WEB-INF" />
       <recent name="D:\SUB\PRO\Java\mvc\web\WEB-INF\view\user" />
       <recent name="D:\SUB\PRO\Java\mvc\web\WEB-INF\view\index" />
       <recent name="D:\SUB\PRO\Java\mvc\web\WEB-INF\index" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\SUB\PRO\Java\mvc\web\WEB-INF" />
-      <recent name="D:\SUB\PRO\Java\mvc\web\WEB-INF\static" />
-      <recent name="D:\SUB\PRO\Java\mvc\lib" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -245,7 +245,8 @@
       <workItem from="1564736686415" duration="191000" />
       <workItem from="1564756146131" duration="8794000" />
       <workItem from="1564795653676" duration="4026000" />
-      <workItem from="1564799727355" duration="31215000" />
+      <workItem from="1564799727355" duration="35490000" />
+      <workItem from="1564877485806" duration="7258000" />
     </task>
     <servers />
   </component>

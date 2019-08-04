@@ -23,7 +23,6 @@ public class StoreController {
      */
     @RequestMapping("index")
     public String Index(String sid, HttpSession session, Model model){
-        model.addAttribute("title","卖家中心");
         if(session.getAttribute("uid") == null){
             return "redirect:../user/login";
         }
@@ -32,6 +31,7 @@ public class StoreController {
                 return "redirect:../store/error";
             }
             else{
+                model.addAttribute("title","卖家中心");
                 return "store/index";
             }
         }

@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.ArrayList;
 
@@ -53,7 +54,6 @@ public class GoodsController {
      */
     @RequestMapping("manager")
     public String Manager(HttpSession session, Model model){
-        model.addAttribute("title", "商品管理");
         if(session.getAttribute("uid") == null){
             return "redirect:../user/login";
         }
@@ -67,6 +67,7 @@ public class GoodsController {
                 String sid = (String)session.getAttribute("sid");
                 ArrayList list = (ArrayList)goods.All((sid));
                 model.addAttribute("list", list);
+                model.addAttribute("title", "商品管理");
                 return "goods/manager";
             }
         }
@@ -83,7 +84,7 @@ public class GoodsController {
         }
         else{
             if(session.getAttribute("sid") == null){
-                return "redirect:store/apply";
+                return "redirect:../store/apply";
             }
             else{
                 if(title == null || "".equals(title) || about == null || "".equals(about)){
@@ -110,29 +111,28 @@ public class GoodsController {
      * 删除商品
      */
     @RequestMapping("del")
-    public String Del(String gid, Model model, HttpSession session){
-        model.addAttribute("title", "删除商品");
+    public String Del(String gid, RedirectAttributes attributes, HttpSession session){
         if(session.getAttribute("uid") == null){
             return "redirect:../user/login";
         }
         else{
             if(session.getAttribute("sid") == null){
-                return "redirect:store/apply";
+                return "redirect:../store/apply";
             }
             else{
                 if(gid == null || "".equals(gid)){
-                    return "redirect:goods/manager";
+                    return "redirect:manager";
                 }
                 else{
                     Goods goods = new Goods();
                     boolean r = goods.Del(gid);
                     if(r == true){
-                        model.addAttribute("msg", "删除成功");
-                        return "redirect:goods/manager";
+                        attributes.addFlashAttribute("msg", "删除成功");
+                        return "redirect:manager";
                     }
                     else{
-                        model.addAttribute("msg", "删除失败");
-                        return "redirect:goods/manager";
+                        attributes.addFlashAttribute("msg", "删除失败");
+                        return "redirect:manager";
                     }
                 }
             }

@@ -30,6 +30,7 @@
                 <li><a href="../../collect/index">收藏夹</a></li>
                 <li><a href="../../store/index">卖家中心</a></li>
                 <li><a href="../../about/index">关于我们</a></li>
+                <li><a href="../../coop/index">商务合作</a></li>
                 <li><a href="../../find/index">网站导航</a></li>
             </ul>
         </div>

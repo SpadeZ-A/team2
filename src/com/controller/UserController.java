@@ -24,6 +24,16 @@ public class UserController {
     private String Room;
 
     /**
+     * 构造函数
+     */
+    public UserController(){
+        this.Nickname = "";
+        this.Username = "";
+        this.College = "";
+        this.Room = "";
+    }
+
+    /**
      * 用户首页
      */
     @RequestMapping("index")
@@ -47,12 +57,12 @@ public class UserController {
      */
     @RequestMapping("login")
     public String Login(String username, String password, Model model, HttpSession session){
-        model.addAttribute("title","用户登录");
         if(session.getAttribute("uid") == null){
             try{
                 User user = new User(username, password);
                 return getString(username, session, user);
             }catch (Exception e){
+                model.addAttribute("title","用户登录");
                 return "user/login";
             }
         }

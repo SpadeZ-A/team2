@@ -3,11 +3,11 @@
     <div class="bottom-menu">
         <table class="friend-link-list">
             <tr>
-                <td><a href="#">关于我们</a></td>
+                <td><a href="/about/index">关于我们</a></td>
                 <td><span class="cut-line">&nbsp;&nbsp;</span></td>
-                <td><a href="#">联系方式</a></td>
+                <td><a href="/about/contact">联系方式</a></td>
                 <td><span class="cut-line">&nbsp;&nbsp;</span></td>
-                <td><a href="#">商务合作</a></td>
+                <td><a href="/coop/index">商务合作</a></td>
                 <td><span class="cut-line">&nbsp;&nbsp;</span></td>
             </tr>
         </table>

@@ -56,15 +56,14 @@
 <div class="body">
     <div class="body-div" style="display: flex">
         <div class="left-div">
-            <div class="left-div-title">关于我们</div>
+            <div class="left-div-title">商务合作</div>
             <hr style="border: 0;border-bottom: 3px solid #ff9000;margin: 0;">
-            <a href="index"><div class="left-div-list">网站简介</div></a>
-            <a href="team"><div class="left-div-list">开发团队</div></a>
-            <a href="contact"><div class="left-div-list">联系方式</div></a>
-            <a href="address"><div class="left-div-list">办公地址</div></a>
+            <a href="index"><div class="left-div-list">关于合作</div></a>
+            <a href="case"><div class="left-div-list">成功案例</div></a>
+            <a href="course"><div class="left-div-list">发展历程</div></a>
         </div>
         <div class="right-div">
-            <div class="right-div-title">网站简介</div>
+            <div class="right-div-title">发展历程</div>
             <hr style="border: 0;border-bottom: 3px solid #ff9000;margin: 0;">
             <div class="right-div-body">body</div>
         </div>

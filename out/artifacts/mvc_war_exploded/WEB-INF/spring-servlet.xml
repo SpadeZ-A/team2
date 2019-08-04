@@ -29,6 +29,8 @@
     <bean name="about" class="com.controller.AboutController"></bean>
     <!--发现控制器 -->
     <bean name="find" class="com.controller.FindController"></bean>
+    <!-- 商务合作控制器 -->
+    <bean name="coop" class="com.controller.CoopController"></bean>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/view/"/>

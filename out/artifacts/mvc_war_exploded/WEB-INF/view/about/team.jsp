@@ -64,7 +64,7 @@
             <a href="address"><div class="left-div-list">办公地址</div></a>
         </div>
         <div class="right-div">
-            <div class="right-div-title">网站简介</div>
+            <div class="right-div-title">开发团队</div>
             <hr style="border: 0;border-bottom: 3px solid #ff9000;margin: 0;">
             <div class="right-div-body">body</div>
         </div>
