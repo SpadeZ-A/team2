@@ -25,7 +25,11 @@
                 %>
             </ul>
             <ul class="top-menu-right">
-                <li><a href="../../">网站首页</a></li>
+                <%
+                    if(!"/WEB-INF/view/index/index.jsp".equals(request.getRequestURI())){
+                        out.print("<li><a href=\"../../\">网站首页</a></li>");
+                    }
+                %>
                 <li><a href="../../cart/index">购物车</a></li>
                 <li><a href="../../collect/index">收藏夹</a></li>
                 <li><a href="../../store/index">卖家中心</a></li>

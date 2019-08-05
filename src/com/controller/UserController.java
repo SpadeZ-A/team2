@@ -58,11 +58,11 @@ public class UserController {
     @RequestMapping("login")
     public String Login(String username, String password, Model model, HttpSession session){
         if(session.getAttribute("uid") == null){
+            model.addAttribute("title","用户登录");
             try{
                 User user = new User(username, password);
                 return getString(username, session, user);
             }catch (Exception e){
-                model.addAttribute("title","用户登录");
                 return "user/login";
             }
         }
