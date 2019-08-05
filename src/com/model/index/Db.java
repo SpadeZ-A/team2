@@ -12,9 +12,9 @@ public class Db {
      * 数据库配置参数
      */
     private final String driver = "org.gjt.mm.mysql.Driver";
-    private final String url = "jdbc:mysql://39.105.28.118:3306/mvc?autoReconnect=true&amp;failOverReadOnly=false";
-    private final String username = "mvc";
-    private final String password = "mvc";
+    private final String url = "jdbc:mysql://39.105.28.118:3306/team2?autoReconnect=true&amp;failOverReadOnly=false";
+    private final String username = "team2";
+    private final String password = "team2";
 
     /**
      * 多数据方法
