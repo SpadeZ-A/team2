@@ -79,10 +79,8 @@
             <div class="goods-data-div">
                 <div class="goods-data-title">商品详情</div>
                 <div class="goods-data-menu">
-                    <form action="../order/index" method="post">
-                        商品：<input name="goods" value="<%=request.getParameter("gid")%>"/>
-                        <input type="submit"/>
-                    </form>
+                    商品：<%=request.getParameter("gid")%><br>
+                    <a href="../order/index?goods=<%=request.getParameter("gid")%>">提交订单</a>
                 </div>
             </div>
         </div>

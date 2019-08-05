@@ -38,7 +38,6 @@ public class UserController {
      */
     @RequestMapping("index")
     public String Index(Model model, HttpSession session){
-        model.addAttribute("title","用户中心");
         if(session.getAttribute("uid") == null){
             return "redirect:login";
         }
@@ -48,6 +47,7 @@ public class UserController {
             model.addAttribute("list", list);
             model.addAttribute("info", session.getAttribute("info"));
             model.addAttribute("uid", session.getAttribute("uid"));
+            model.addAttribute("title","用户中心");
             return "user/index";
         }
     }
@@ -58,11 +58,30 @@ public class UserController {
     @RequestMapping("login")
     public String Login(String username, String password, Model model, HttpSession session){
         if(session.getAttribute("uid") == null){
-            model.addAttribute("title","用户登录");
             try{
                 User user = new User(username, password);
-                return getString(username, session, user);
+                if(user.checkLogin()){
+                    this.Nickname = user.getNickname();
+                    this.Username = user.getUsername();
+                    this.College = user.getCollege();
+                    this.Room = user.getRoom();
+                    ArrayList<String> info = new ArrayList<>();
+                    info.add(this.Nickname);
+                    info.add(this.Username);
+                    info.add(this.College);
+                    info.add(this.Room);
+                    session.setAttribute("info", info);
+                    session.setAttribute("uid", user.getUid());
+                    session.setAttribute("sid", user.getSid());
+                    System.out.println("[LOGIN]:" + username);
+                    return "redirect:index";
+                }
+                else{
+                    model.addAttribute("title","用户登录");
+                    return "user/login";
+                }
             }catch (Exception e){
+                model.addAttribute("title","用户登录");
                 return "user/login";
             }
         }
@@ -87,11 +106,11 @@ public class UserController {
      */
     @RequestMapping("register")
     public String Register(String username, String password, String check, Model model, HttpSession session){
-        model.addAttribute("title","用户注册");
         if(username == null || "".equals(username) ||
                 password == null || "".equals(password) ||
                 check == null ||"".equals(check)
         ){
+            model.addAttribute("title","用户注册");
             return "user/register";
         }
         else{
@@ -99,9 +118,29 @@ public class UserController {
             boolean state = user.checkRegister();
             if(state){
                 if (user.Register()) {
-                    return getString(username, session, user);
+                    if(user.checkLogin()){
+                        Nickname = user.getNickname();
+                        Username = user.getUsername();
+                        College = user.getCollege();
+                        Room = user.getRoom();
+                        ArrayList<String> info = new ArrayList<>();
+                        info.add(Nickname);
+                        info.add(Username);
+                        info.add(College);
+                        info.add(Room);
+                        session.setAttribute("info", info);
+                        session.setAttribute("uid", user.getUid());
+                        session.setAttribute("sid", user.getSid());
+                        System.out.println("[LOGIN]:" + username);
+                        return "redirect:index";
+                    }
+                    else{
+                        model.addAttribute("title","用户登录");
+                        return "user/login";
+                    }
                 }
                 else{
+                    model.addAttribute("title","用户注册");
                     return "user/register";
                 }
             }
@@ -109,32 +148,6 @@ public class UserController {
                 model.addAttribute("msg","账号已存在");
                 return "user/register";
             }
-        }
-    }
-
-    /**
-     * 获取用户信息
-     */
-    private String getString(String username, HttpSession session, User user) {
-        boolean f = user.checkLogin();
-        if(f){
-            this.Nickname = user.getNickname();
-            this.Username = user.getUsername();
-            this.College = user.getCollege();
-            this.Room = user.getRoom();
-            ArrayList<String> info = new ArrayList<>();
-            info.add(this.Nickname);
-            info.add(this.Username);
-            info.add(this.College);
-            info.add(this.Room);
-            session.setAttribute("info", info);
-            session.setAttribute("uid", user.getUid());
-            session.setAttribute("sid", user.getSid());
-            System.out.println("[LOGIN]:" + username);
-            return "redirect:index";
-        }
-        else{
-            return "user/login";
         }
     }
 }

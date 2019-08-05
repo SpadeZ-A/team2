@@ -10,10 +10,10 @@ public class Order {
     /**
      * 创建订单
      */
-    public boolean Add(Object gid, Object number, String buyer, String seller, String time){
+    public boolean Add(Object gid, String oid, String buyer, String seller, String time){
         Db db = new Db();
-        String [] key = {"gid", "number", "buyer", "seller", "time"};
-        String [] val = {(String)gid, (String)number, buyer, seller, time};
+        String [] key = {"gid", "oid", "buyer", "seller", "time"};
+        String [] val = {(String)gid, oid, buyer, seller, time};
         db.Insert("order", key, val);
         return false;
     }

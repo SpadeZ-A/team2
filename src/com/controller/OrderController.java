@@ -19,19 +19,19 @@ public class OrderController {
     /**
      * 默认页面
      */
-    @RequestMapping(value = "index", method= RequestMethod.POST)
-    public String Index(Model model, HttpSession session, HttpServletRequest request){
-        model.addAttribute("title", "生成订单");
+    @RequestMapping("index")
+    public String Index(Model model, HttpSession session){
         if(session.getAttribute("uid") == null){
             return "redirect:../user/login";
         }
         else{
-            Object gid = session.getAttribute("gid");
-            Object number = session.getAttribute("order");
-            Order order = new Order();
             Com com = new Com();
+            Object gid = session.getAttribute("gid");
+            Order order = new Order();
+            String oid = com.NID();
             String time = com.Time();
-            order.Add(gid, number, "buyer", "seller", time);
+            order.Add(gid, oid, "buyer", "seller", time);
+            model.addAttribute("title", "生成订单");
             return "order/index";
         }
     }
